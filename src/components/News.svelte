@@ -19,20 +19,20 @@
         })
 </script>
 
-<div class="flex flex-1 items-center flex-col mt-10 w-32 overflow-y-auto">
+<div class="flex flex-1 items-center flex-col mt-10 w-full lg:w-32">
     <h3 class="mb-10">News:</h3>
     {#if loading}
         <ProgressCircular />
     {:else}
         {#each news as entry}
-            <Card.Card class="bg-gray-800 max-w-3xl p-4">
+            <Card.Card class="bg-gray-800 max-w-full lg:max-w-3xl p-4">
                 <div slot="title" class="flex">
                     <Card.Title
                         classes="text-8xl flex-1"
                         title={entry.title}
                         subheader={entry.creator}
                     />
-                    <div class="text-gray-600">
+                    <div class="text-gray-600 mt-3">
                         {formatDate(entry.created_on)}
                     </div>
                 </div>
