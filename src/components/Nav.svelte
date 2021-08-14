@@ -4,9 +4,7 @@
 </script>
 
 <div class="flex gap-x-10">
-    <Button href="/#/" text icon="home" iconClass="mx-2 color-primary"
-        >Home</Button
-    >
+    <Button href="/#/" text icon="home" iconClass="mx-2">Home</Button>
     <Button href="/#/videos" text icon="video_library" iconClass="mx-2"
         >Videos</Button
     >
