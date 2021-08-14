@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import { supabase } from './supabase'
+import supabase from './supabase'
 export let loading = writable(true)
 export let labels = writable({})
 export let loadLabels = async () => {
