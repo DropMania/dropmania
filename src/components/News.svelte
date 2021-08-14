@@ -13,7 +13,6 @@
                 console.log(error)
             } else {
                 news = data
-                console.log(news)
                 loading = false
             }
         })

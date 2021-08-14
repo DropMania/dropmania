@@ -1,7 +1,6 @@
 <script>
     import { location } from 'svelte-spa-router'
     import Button from 'smelte/src/components/Button'
-    console.log($location)
 </script>
 
 <div class="flex gap-x-10">

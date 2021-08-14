@@ -3,12 +3,16 @@
     import Button from 'smelte/src/components/Button'
     import { ProgressCircular } from 'smelte'
     import News from '../components/News.svelte'
+    import supabase from '../supabase'
     export let imgLoading = true
     const onload = (el) => {
         el.addEventListener('load', () => {
             imgLoading = false
         })
     }
+    export let { publicURL: avatarImg } = supabase.storage
+        .from('images')
+        .getPublicUrl('me.jpg')
 </script>
 
 <div
@@ -16,7 +20,7 @@
 >
     <div class="max-w-xs my-10">
         <img
-            src="https://ipcvsdfreyisgwvswuvz.supabase.in/storage/v1/object/public/images/Avatar new.png"
+            src={avatarImg}
             alt="me"
             class="rounded-full border-4 "
             use:onload
