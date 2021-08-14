@@ -1,14 +1,52 @@
 <script>
+    import {
+        Button,
+        breakpoints,
+        NavigationDrawer,
+        List,
+        ListItem
+    } from 'smelte'
     import { location } from 'svelte-spa-router'
-    import Button from 'smelte/src/components/Button'
+    const bp = breakpoints()
+    $: show = $bp !== 'sm'
+    $: current = $location
+    export let showDrawer = false
+    export let routes = [
+        { route: '#/', icon: 'home', title: 'Home' },
+        { route: '#/videos', icon: 'video_library', title: 'Videos' },
+        { route: '#/projects', icon: 'code', title: 'Projects' }
+    ]
 </script>
 
-<div class="flex gap-x-10">
-    <Button href="/#/" text icon="home" iconClass="mx-2">Home</Button>
-    <Button href="/#/videos" text icon="video_library" iconClass="mx-2"
-        >Videos</Button
-    >
-    <Button href="/#/projects" text icon="code" iconClass="mx-2"
-        >Projects</Button
-    >
-</div>
+{#if show}
+    <div class="flex gap-x-10">
+        {#each routes as route}
+            <Button href={route.route} text icon={route.icon} iconClass="mx-2"
+                >{route.title}</Button
+            >
+        {/each}
+    </div>
+{:else}
+    <Button
+        icon="menu"
+        on:click={() => {
+            showDrawer = true
+        }}
+        class="mt-5"
+    />
+    <NavigationDrawer bind:show={showDrawer}>
+        <List items={routes}>
+            <span slot="item" let:item class="cursor-pointer">
+                <a href={item.route}>
+                    <ListItem
+                        selected={`#${current}` === item.route}
+                        text={item.title}
+                        icon={item.icon}
+                        dense
+                        navigation
+                    />
+                </a></span
+            >
+        </List>
+    </NavigationDrawer>
+{/if}
