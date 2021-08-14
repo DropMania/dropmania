@@ -1,6 +1,6 @@
 <script>
     import supabase from '../supabase'
-    import { Card, TextField } from 'smelte'
+    import { Card, TextField, ProgressCircular } from 'smelte'
     import { formatDate } from '../utils'
     export let loading = true
     let videos = []
@@ -36,26 +36,32 @@
         on:input={filterVideos}
     />
 </div>
-<div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
->
-    {#each filterdVideos as video}
-        <Card.Card class="bg-black">
-            <div slot="title">
-                <Card.Title
-                    title={video.title}
-                    subheader={formatDate(video.publishedAt)}
-                />
-            </div>
-            <div slot="media">
-                <a
-                    href="https://www.youtube.com/watch?v={video.id}"
-                    target="_blank"
-                    class=""
-                >
-                    <img class="w-full" src={video.thumbnail} alt="video" />
-                </a>
-            </div>
-        </Card.Card>
-    {/each}
-</div>
+{#if loading}
+    <div class="flex justify-center">
+        <ProgressCircular />
+    </div>
+{:else}
+    <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+    >
+        {#each filterdVideos as video}
+            <Card.Card class="bg-black">
+                <div slot="title">
+                    <Card.Title
+                        title={video.title}
+                        subheader={formatDate(video.publishedAt)}
+                    />
+                </div>
+                <div slot="media">
+                    <a
+                        href="https://www.youtube.com/watch?v={video.id}"
+                        target="_blank"
+                        class=""
+                    >
+                        <img class="w-full" src={video.thumbnail} alt="video" />
+                    </a>
+                </div>
+            </Card.Card>
+        {/each}
+    </div>
+{/if}

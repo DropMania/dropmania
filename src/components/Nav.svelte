@@ -8,4 +8,7 @@
     <Button href="/#/videos" text icon="video_library" iconClass="mx-2"
         >Videos</Button
     >
+    <Button href="/#/projects" text icon="code" iconClass="mx-2"
+        >Projects</Button
+    >
 </div>
