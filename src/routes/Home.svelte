@@ -35,7 +35,7 @@
             <ProgressCircular />
         </div>
 
-        <h3>DropMania</h3>
+        <h3>{$labels['name']}</h3>
         <div class="body-1 text-gray-400">{$labels['about-me']}</div>
         <div class="flex gap-x-3 mt-4">
             <Button href="https://github.com/DropMania" target="_blank"
