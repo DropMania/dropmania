@@ -23,6 +23,7 @@
     "@supabase/supabase-js": "^1.21.1",
     "sirv-cli": "^1.0.0",
     "smelte": "^1.1.6",
+    "svelte-markdown": "^0.1.10",
     "svelte-spa-router": "^3.2.0"
   }
 }

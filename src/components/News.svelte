@@ -3,6 +3,7 @@
     import { ProgressCircular } from 'smelte'
     import { Card } from 'smelte'
     import { formatDate } from '../utils'
+    import SvelteMarkdown from 'svelte-markdown'
     export let news = []
     export let loading = true
     supabase
@@ -43,7 +44,7 @@
                     />
                 </div>
                 <div slot="text" class="text-gray-300 body-1 mt-5 mx-4">
-                    {entry.content}
+                    <SvelteMarkdown source={entry.content} />
                 </div>
             </Card.Card>
         {/each}
