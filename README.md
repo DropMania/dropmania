@@ -1,2 +1,4 @@
-#   DropMania
-![](https://miro.medium.com/max/1200/1*ENycPFvoQXw4s4i56Kju7Q.gif)
+<h1>DropMania</h1>
+<div align="center">
+  <img src="https://media.giphy.com/media/ASd0Ukj0y3qMM/source.gif" />
+</div>
