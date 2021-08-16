@@ -14,7 +14,8 @@
     export let routes = [
         { route: '#/', icon: 'home', title: 'Home' },
         { route: '#/videos', icon: 'video_library', title: 'Videos' },
-        { route: '#/projects', icon: 'code', title: 'Projects' }
+        { route: '#/projects', icon: 'code', title: 'Projects' },
+        { route: '#/about', icon: 'person', title: 'About' }
     ]
 </script>
 
@@ -27,7 +28,17 @@
         {/each}
     </div>
 {:else}
-    <Button
+    <div class="flex gap-x-2">
+        {#each routes as route}
+            <Button
+                href={route.route}
+                text
+                icon={route.icon}
+                iconClass="mx-2"
+            />
+        {/each}
+    </div>
+    <!-- <Button
         icon="menu"
         on:click={() => {
             showDrawer = true
@@ -48,5 +59,5 @@
                 </a></span
             >
         </List>
-    </NavigationDrawer>
+    </NavigationDrawer> -->
 {/if}
